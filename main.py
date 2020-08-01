@@ -12,7 +12,7 @@ from sda_exercises_oop_1_mz.ex1_10.dog import Dog
 from sda_exercises_oop_3_mz.complex import MyComplex
 from sda_exercises_oop_3_mz.order import Order
 from sda_exercises_oop_3_mz.order_item import OrderItem, OrderItemError
-
+from sda_serialize_1_mz.Human import Human, write_humans_to_file, read_humans_from_file
 
 def ex2() -> list:
     cats = []
@@ -114,7 +114,18 @@ def main():
     # exceptions
     # ciekawe zrodlo - https://realpython.com/python-exceptions/
     # ex1()
-    ex7()
+    # ex7()
+
+    # serialization
+    humans = []
+    human1 = Human('Abelard', 'Albrecht', 38)
+    human2 = Human('Antoni', 'Nowak', 40)
+    humans.append(human1)
+    humans.append(human2)
+    write_humans_to_file(humans)
+    returned_humans = read_humans_from_file()
+    for human in returned_humans:
+        print(human)
 
 
 if __name__ == "__main__":
