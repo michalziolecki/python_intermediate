@@ -4,8 +4,10 @@ from sda_exercises_oop_2_mz.manager import Manager
 from sda_exercises_oop_1_mz.ex1_10.cat import Cat
 from sda_exercises_oop_1_mz.ex1_10.dog import Dog
 
-
 # zwrocenie wartosci przez przypisanie - return
+from sda_exercises_oop_3_mz.complex import MyComplex
+
+
 def ex2() -> list:
     cats = []
     cat1 = Cat('Antek')
@@ -32,31 +34,55 @@ def ex5(animals: list):
 
 
 def main():
-    cats = ex2()
-    cat = Cat('aaa')
-    cat.eat_mouse()
-    cat.eat_mouse()
-    animals = []
-    print('adres list: ' + hex(id(animals)))
-    ex5(animals)
-    print('adres list: ' + hex(id(animals)))
-    for animal in animals:
-        print(animal.make_sound())
+    # cats = ex2()
+    # cat = Cat('aaa')
+    # cat.eat_mouse()
+    # cat.eat_mouse()
+    # animals = []
+    # print('adres list: ' + hex(id(animals)))
+    # ex5(animals)
+    # print('adres list: ' + hex(id(animals)))
+    # for animal in animals:
+    #     print(animal.make_sound())
+    #
+    # # ex 7
+    # cat.move()
+    #
+    # #ex 11-13
+    #
+    # #blok sda2
+    # manager = Manager('Jan', 'Kowalski', date(1992, 10, 10), 4500)
+    # print(manager.salary)
+    # manager.who_am_i()
+    #
+    # employee = Employee('Jan', 'Kowalski', date(1992, 10, 10), 2500)
+    # print(employee.salary)
+    # employee.who_am_i()
 
-    # ex 7
-    cat.move()
+    # 3_mz
+    number1 = MyComplex(100, 20)
+    number1.show()
+    print(number1)
 
-    #ex 11-13
+    number2 = MyComplex(100, 20)
+    number2.show()
+    print(number2)
 
-    #blok sda2
-    manager = Manager('Jan', 'Kowalski', date(1992, 10, 10), 4500)
-    print(manager.salary)
-    manager.who_am_i()
+    number3 = MyComplex(101, 20)
+    number3.show()
+    print(number3)
 
-    employee = Employee('Jan', 'Kowalski', date(1992, 10, 10), 2500)
-    print(employee.salary)
-    employee.who_am_i()
+    print(f'compare complex: {number2.is_equal_to(100, 20)}')
+    print(f'compare complex: {number1==number2}')
+    print(f'compare complex: {number2==number3}')
 
+    complex_list = [number1, number2, number3]
+
+    print(MyComplex.add_two_complex(number1, number2))
+    print(MyComplex.add_three_complex(number1, number2, number3))
+    print(MyComplex.add_many_complex(complex_list))
+
+    print(number1.add(number2))
 
 
 if __name__ == "__main__":
