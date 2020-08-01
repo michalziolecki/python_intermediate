@@ -13,6 +13,7 @@ from sda_exercises_oop_3_mz.complex import MyComplex
 from sda_exercises_oop_3_mz.order import Order
 from sda_exercises_oop_3_mz.order_item import OrderItem, OrderItemError
 from sda_serialize_1_mz.Human import Human, write_humans_to_file, read_humans_from_file
+from sda_serialize_1_mz.csv_training import csv_write, csv_read
 from sda_serialize_1_mz.pickle_training import  pickling_read, pickling_write
 
 
@@ -119,8 +120,11 @@ def main():
     # ex7()
 
     # serialization
-    pickling_write()
-    pickling_read()
+    # pickling_write()
+    # pickling_read()
+
+    # csv_write()
+    csv_read()
 
     # humans = []
     # human1 = Human('Abelard', 'Albrecht', 38)
