@@ -1,5 +1,7 @@
 from decimal import Decimal  # jest to typ o duzej i ustalonej precyzji dla walut
 
+from sda_exercises_oop_3_mz.order_item_error import OrderItemError
+
 
 class OrderItem:
 
@@ -11,7 +13,7 @@ class OrderItem:
 
     def get_value(self) -> Decimal:
         if not self.is_correct():
-            raise ValueError('Price for order equal or below zero!')
+            raise OrderItemError('Price for order equal or below zero!')
         return self.all_price
 
     def is_correct(self) -> bool:
