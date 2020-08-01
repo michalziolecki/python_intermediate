@@ -1,5 +1,9 @@
+from sda_exceptions_1_mz.ex1 import ex1
+
+
 def main():
-    print('hello')
+    ex1()
+
 
 
 if __name__ == "__main__":
