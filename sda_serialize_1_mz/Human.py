@@ -1,6 +1,7 @@
 import json
 
 
+# ex 7-12
 class Human:
 
     def __init__(self, name: str, surname: str, age: int):
@@ -27,7 +28,7 @@ def write_humans_to_file(humans: list):
 
     for human in humans:
         human_str: dict = human.convert_to_dict()  # obiekt jest dict (zapis rodzimy dla jsona)
-        human_json: str = json.dumps(human_str) # tutaj obiuekt jest stringiem w formacie json')
+        human_json: str = json.dumps(human_str)  # tutaj obiuekt jest stringiem w formacie json')
         humans_serialized.append(human_json)
 
     try:
@@ -49,8 +50,8 @@ def read_humans_from_file() -> list:
 
     humans = []
     for human_str in humans_serialized:
-        human_json: dict = json.loads(human_str) # tutaj format pisma json w typie string jest zamieniany na dict
-        human = Human.convert_from_dict(human_json) # tutaj juz nie jest ani stringiem ani jsonem tylko obiektem human
+        human_json: dict = json.loads(human_str)  # tutaj format pisma json w typie string jest zamieniany na dict
+        human = Human.convert_from_dict(human_json)  # tutaj juz nie jest ani stringiem ani jsonem tylko obiektem human
         humans.append(human)
 
     return humans_serialized
