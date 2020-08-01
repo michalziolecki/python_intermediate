@@ -1,4 +1,6 @@
-from sda_exceptions_1_mz.exercises_1_mz import ex1
+from decimal import Decimal
+
+from sda_exceptions_1_mz.exercises_1_mz import ex1, ex7
 
 from datetime import date
 from sda_exercises_oop_2_mz.employee import Employee
@@ -9,7 +11,7 @@ from sda_exercises_oop_1_mz.ex1_10.dog import Dog
 # zwrocenie wartosci przez przypisanie - return
 from sda_exercises_oop_3_mz.complex import MyComplex
 from sda_exercises_oop_3_mz.order import Order
-from sda_exercises_oop_3_mz.order_item import *
+from sda_exercises_oop_3_mz.order_item import OrderItem, OrderItemError
 
 
 def ex2() -> list:
@@ -87,30 +89,32 @@ def main():
     # print(MyComplex.add_many_complex(complex_list))
     #
     # print(number1.add(number2))
-    item1 = OrderItem('Ser', 3, Decimal(4.50))
-    item1.show()
-    print(item1)
-    print(item1.is_correct())
-
-    item2 = OrderItem('Masło', 0, Decimal(6.50))
-    item2.show()
-    print(item2)
-    try:
-        print(item2.get_value())
-    except ValueError as ve:
-        print(f'Error cached {ve.args}')
-    print(item2.is_correct())
-
-    item3 = OrderItem('Musztarda', 2, Decimal(2.50))
-    item3.show()
-
-    order = Order()
-    order.add_item(item1)
-    order.add_item(item3)
-    order.show()
+    # item1 = OrderItem('Ser', 3, Decimal(4.50))
+    # item1.show()
+    # print(item1)
+    # print(item1.is_correct())
+    #
+    # item2 = OrderItem('Masło', 0, Decimal(6.50))
+    # item2.show()
+    # print(item2)
+    # try:
+    #     print(item2.get_value())
+    # except ValueError as ve:
+    #     print(f'Error cached {ve.args}')
+    # print(item2.is_correct())
+    #
+    # item3 = OrderItem('Musztarda', 2, Decimal(2.50))
+    # item3.show()
+    #
+    # order = Order()
+    # order.add_item(item1)
+    # order.add_item(item3)
+    # order.show()
 
     # exceptions
-    ex1()
+    # ciekawe zrodlo - https://realpython.com/python-exceptions/
+    # ex1()
+    ex7()
 
 
 if __name__ == "__main__":

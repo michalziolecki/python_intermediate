@@ -47,3 +47,27 @@ def ex4_v2(dictionary: dict):
     items = dictionary.get(key, [])
     for item in items:
         print(item)
+
+
+def ex6():
+    raise NotImplementedError()
+
+
+def ex7():
+    fd = None
+    try:
+        fd = open('C:\\windows-version.txt')  # fd stands for file descriptor - in system it's handler to file
+        # fd.close()
+    except IOError as ioe:
+        print('exception while opening file info:' + str(ioe.args))
+    finally:
+        if fd:
+            print('closing file handler if exist')
+            fd.close()
+
+    # sposób drugi
+    try:
+        with open('c:/not_exist/file') as fd2: # konstrukcja with pilnuje zamkniecia uchwytu do pliku pliku
+            print('Plik w tym zasiegu jest otwarty')
+    except IOError as ioe:
+        print('exception while opening file info:' + str(ioe.args))
