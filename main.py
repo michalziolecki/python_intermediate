@@ -1,4 +1,4 @@
-from sda_exceptions_1_mz.ex1 import ex1
+from sda_exceptions_1_mz.exercises_1_mz import ex1
 
 
 def main():
