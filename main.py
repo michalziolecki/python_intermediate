@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+from sda_content_mamanger_1_mz.utils import write_file, write_file_with_object
 from sda_exceptions_1_mz.exercises_1_mz import ex1, ex7
 
 from datetime import date
@@ -146,7 +147,9 @@ def main():
     # open_file_func('./test', [])
     # throw_exception_file()
     # no_exist_file()
-    ex_5_no_exist_file()
+    # ex_5_no_exist_file()
+    # write_file('./test.txt')
+    write_file_with_object()
 
 
 if __name__ == "__main__":
