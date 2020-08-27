@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 from decimal import Decimal
 
 from sda_exceptions_1_mz.exercises_1_mz import ex1, ex7
@@ -15,7 +16,7 @@ from sda_exercises_oop_3_mz.order_item import OrderItem, OrderItemError
 from sda_serialize_1_mz.Human import Human, write_humans_to_file, read_humans_from_file
 from sda_serialize_1_mz.csv_training import csv_write, csv_read
 from sda_serialize_1_mz.json_training import write_json_to_file, read_json_from_file
-from sda_serialize_1_mz.pickle_training import  pickling_read, pickling_write
+from sda_serialize_1_mz.pickle_training import pickling_read, pickling_write
 
 
 def ex2() -> list:
@@ -43,7 +44,73 @@ def ex5(animals: list):
     animals.append(dog2)
 
 
+class HumanMan:
+
+    def __init__(self, color_eye: str, name: str):
+        self.color_eye = color_eye
+        self.name = name
+
+    def say_hey_with_name(self) -> str:
+        return f'Hey I am {self.name}'
+
+    @staticmethod
+    def say_hey() -> str:
+        return 'hey'
+
+
+class Calculator:
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def add(a: int, b: int) -> int:
+        return a + b
+
+
+class Auto(ABC):
+
+    def __init__(self, color: str, weight: int):
+        self.color = color
+        self.weight = weight
+
+    @abstractmethod
+    def drive(self):
+        pass
+
+
+class Engine:
+
+    def __init__(self, power: int):
+        self.power = power
+
+
+class SuperCar(Auto):
+
+    def __init__(self, color: str, weight: int, engine: Engine):
+        super().__init__(color, weight)  # dziedziczenie
+        self.engine = engine  # kompozycja
+
+    def drive(self):
+        print('Brum brum brum')
+
+
 def main():
+    # engine = Engine(100)
+    # car = SuperCar('red', 2000, engine)
+    # print(vars(car))
+    # car.drive()
+    # auto = Auto('red', 2000)
+    # auto.drive()
+
+    # man1 = HumanMan('green', 'Lukas')
+    # print(man1.say_hey_with_name())
+    # # print(man1.say_hey())
+    #
+    # print('no object: ' + HumanMan.say_hey())
+    # print(Calculator.add(1, 2))
+    #
+    print(dict.mro())
     # cats = ex2()
     # cat = Cat('aaa')
     # cat.eat_mouse()
@@ -126,9 +193,9 @@ def main():
 
     # csv_write()
     # csv_read()
-
-    write_json_to_file()
-    read_json_from_file()
+    #
+    # write_json_to_file()
+    # read_json_from_file()
 
     # humans = []
     # human1 = Human('Abelard', 'Albrecht', 38)
