@@ -14,6 +14,7 @@ from sda_decorators_1_mz.utils import hello_function, open_file_func, throw_exce
 from sda_exercises_oop_3_mz.complex import MyComplex
 from sda_exercises_oop_3_mz.order import Order
 from sda_exercises_oop_3_mz.order_item import OrderItem, OrderItemError
+from sda_lambda_1_mz.utils import list_sorting_ex1, lambda_ex2_and_ex3, ex4_lambda, ex5_lambda
 from sda_serialize_1_mz.Human import Human, write_humans_to_file, read_humans_from_file
 from sda_serialize_1_mz.csv_training import csv_write, csv_read
 from sda_serialize_1_mz.json_training import write_json_to_file, read_json_from_file
@@ -149,7 +150,13 @@ def main():
     # no_exist_file()
     # ex_5_no_exist_file()
     # write_file('./test.txt')
-    write_file_with_object()
+    # write_file_with_object()
+
+    # lambda
+    # list_sorting_ex1()
+    # lambda_ex2_and_ex3()
+    # ex4_lambda()
+    ex5_lambda()
 
 
 if __name__ == "__main__":
