@@ -19,7 +19,7 @@ class Human:
     def convert_from_dict(cls, params: dict):
         name = params.get('name', '-')
         surname = params.get('surname', '-')
-        age = params.get('name', '-')
+        age = params.get('age', 0)
         return cls(name, surname, age)
 
 

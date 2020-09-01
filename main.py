@@ -13,7 +13,7 @@ from sda_exercises_oop_1_mz.ex1_10.dog import Dog
 from sda_exercises_oop_3_mz.complex import MyComplex
 from sda_exercises_oop_3_mz.order import Order
 from sda_exercises_oop_3_mz.order_item import OrderItem, OrderItemError
-from sda_serialize_1_mz.Human import Human, write_humans_to_file, read_humans_from_file
+from sda_serialize_1_mz.human import Human, write_humans_to_file, read_humans_from_file
 from sda_serialize_1_mz.csv_training import csv_write, csv_read
 from sda_serialize_1_mz.json_training import write_json_to_file, read_json_from_file
 from sda_serialize_1_mz.pickle_training import pickling_read, pickling_write
