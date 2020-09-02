@@ -13,6 +13,7 @@ from sda_exercises_oop_1_mz.ex1_10.dog import Dog
 from sda_exercises_oop_3_mz.complex import MyComplex
 from sda_exercises_oop_3_mz.order import Order
 from sda_exercises_oop_3_mz.order_item import OrderItem, OrderItemError
+from sda_generators_1_mz.utils import iterators_ex1, iterators_ex2, iterators_ex3, generators_ex4, generators_ex5
 from sda_serialize_1_mz.human import Human, write_humans_to_file, read_humans_from_file
 from sda_serialize_1_mz.csv_training import csv_write, csv_read
 from sda_serialize_1_mz.json_training import write_json_to_file, read_json_from_file
@@ -110,7 +111,7 @@ def main():
     # print('no object: ' + HumanMan.say_hey())
     # print(Calculator.add(1, 2))
     #
-    print(dict.mro())
+    # print(dict.mro())
     # cats = ex2()
     # cat = Cat('aaa')
     # cat.eat_mouse()
@@ -206,6 +207,11 @@ def main():
     # returned_humans = read_humans_from_file()
     # for human in returned_humans:
     #     print(human)
+    iterators_ex1()
+    iterators_ex2()
+    iterators_ex3()
+    generators_ex4()
+    generators_ex5()
 
 
 if __name__ == "__main__":
