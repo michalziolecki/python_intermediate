@@ -14,7 +14,8 @@ from sda_exercises_oop_3_mz.complex import MyComplex
 from sda_exercises_oop_3_mz.order import Order
 from sda_exercises_oop_3_mz.order_item import OrderItem, OrderItemError
 from sda_generators_1_mz.utils import iterators_ex1, iterators_ex2, iterators_ex3, generators_ex4, generators_ex5
-from sda_regex_1_mz.utils import regex_ex1, regex_ex2, regex_ex5, regex_ex3, regex_ex4
+from sda_regex_1_mz.utils import regex_ex1, regex_ex2, regex_ex5, regex_ex3, regex_ex4, regex_ex6, regex_ex7, regex_ex8, \
+    regex_ex9
 from sda_serialize_1_mz.human import Human, write_humans_to_file, read_humans_from_file
 from sda_serialize_1_mz.csv_training import csv_write, csv_read
 from sda_serialize_1_mz.json_training import write_json_to_file, read_json_from_file
@@ -220,8 +221,12 @@ def main():
     # regex_ex1()
     # regex_ex2()
     # regex_ex3()
-    regex_ex4()
+    # regex_ex4()
     # regex_ex5()
+    # regex_ex6()
+    # regex_ex7()
+    # regex_ex8()
+    regex_ex9()
 
 
 if __name__ == "__main__":
