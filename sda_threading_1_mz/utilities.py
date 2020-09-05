@@ -1,7 +1,7 @@
 from concurrent.futures.thread import ThreadPoolExecutor
 from datetime import datetime
 from random import randint
-from threading import Thread, Lock
+from threading import Thread, Lock, Event
 from time import sleep
 
 
@@ -41,13 +41,18 @@ def threading_ex3():
 
 
 data_lock = Lock()  # zabezpiecza przed jednoczesnym dostepem do zmiennych
-name = ''
+finish_event = Event()
 
 
 def write_name_loop():
+    global finish_event
+    global data_lock
     global name
     while True:
         in_value = input('Write name: \n')
+        if in_value == 'exit':
+            finish_event.set()
+            break
         with data_lock:
             name = in_value
             print(f'Thread [write_name_loop] =>'
@@ -55,9 +60,13 @@ def write_name_loop():
 
 
 def check_name_loop():
-    old_name = ''
+    global finish_event
+    global data_lock
     global name
+    old_name = ''
     while True:
+        if finish_event.is_set():
+            break
         data_lock.acquire()
         try:
             # print(f'checking name, new: {name}, old: {old_name}')
@@ -71,6 +80,8 @@ def check_name_loop():
 
 
 def threading_ex4():
+    global name
+    name = ''
     kwargs = {'name_ref': name}
     writing_thread = Thread(target=write_name_loop)
     reading_thread = Thread(target=check_name_loop)
