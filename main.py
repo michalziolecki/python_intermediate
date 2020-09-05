@@ -20,7 +20,7 @@ from sda_serialize_1_mz.human import Human, write_humans_to_file, read_humans_fr
 from sda_serialize_1_mz.csv_training import csv_write, csv_read
 from sda_serialize_1_mz.json_training import write_json_to_file, read_json_from_file
 from sda_serialize_1_mz.pickle_training import pickling_read, pickling_write
-from sda_threading_1_mz.ex1_ex2 import threading_ex1, threading_ex2, threading_ex3
+from sda_threading_1_mz.utilities import threading_ex1, threading_ex2, threading_ex3, threading_ex4
 
 
 def ex2() -> list:
@@ -230,7 +230,8 @@ def main():
     # regex_ex9()
     # threading_ex1()
     # threading_ex2()
-    threading_ex3()
+    # threading_ex3()
+    threading_ex4()
 
 
 if __name__ == "__main__":
