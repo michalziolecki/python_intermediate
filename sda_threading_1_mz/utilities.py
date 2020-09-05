@@ -1,5 +1,6 @@
 from concurrent.futures.thread import ThreadPoolExecutor
 from datetime import datetime
+from queue import Queue
 from random import randint
 from threading import Thread, Lock, Event
 from time import sleep
@@ -39,7 +40,9 @@ def threading_ex3():
         for index in range(5):
             executor.submit(my_thread_sleeping, index)
 
+
 """
+Zad 4
  Tutaj uzylem globalnie dostepnych zmiennych
  ale lepiej bylo by podziedziczyc po watku
   i przekazac referencje do tych obiektow
@@ -96,3 +99,54 @@ def threading_ex4():
     reading_thread.start()
     writing_thread.join()
     reading_thread.join()
+
+
+"""
+Zad 5 *
+Zadanie z gwiazdką bo podziedziczymy po Thread i przekażemy referencję do kolejki
+"""
+
+
+class Numbers:
+    def __init__(self, numbers=None):
+        self.numbers_list = numbers or []
+
+
+class AThread(Thread):
+
+    def __init__(self, queue: Queue):
+        super().__init__()
+        self.queue = queue
+
+    def run(self):
+        while True:
+            value_first = randint(0, 1000)
+            value_second = randint(0, 1000)
+            print(f'Random number are x={value_first} and y={value_second}')
+            self.queue.put(Numbers(numbers=[value_first, value_second]))
+            sleep(2)
+
+
+class BThread(Thread):
+
+    def __init__(self, queue: Queue):
+        super().__init__()
+        self.queue = queue
+
+    def run(self):
+        while True:
+            numbers = self.queue.get()
+            if numbers:
+                print(f'numbers.numbers_list'
+                      f' sum = {numbers.numbers_list[0] + numbers.numbers_list [1]}')
+            sleep(2)
+
+
+def threading_ex5():
+    queue = Queue()
+    thread_a = AThread(queue)
+    thread_b = BThread(queue)
+    thread_a.start()
+    thread_b.start()
+    thread_a.join()
+    thread_b.join()
