@@ -39,7 +39,13 @@ def threading_ex3():
         for index in range(5):
             executor.submit(my_thread_sleeping, index)
 
-
+"""
+ Tutaj uzylem globalnie dostepnych zmiennych
+ ale lepiej bylo by podziedziczyc po watku
+  i przekazac referencje do tych obiektow
+  tylko nie chce utrudniac wchodzac mocniej pojeciem referencji :))
+"""
+name = ''
 data_lock = Lock()  # zabezpiecza przed jednoczesnym dostepem do zmiennych
 finish_event = Event()
 
@@ -49,14 +55,18 @@ def write_name_loop():
     global data_lock
     global name
     while True:
-        in_value = input('Write name: \n')
-        if in_value == 'exit':
+        try:
+            in_value = input('Write name: \n')
+            if in_value == 'exit':
+                finish_event.set()
+                break
+            with data_lock:
+                name = in_value
+                print(f'Thread [write_name_loop] =>'
+                      f' Write new name is: {name}')
+        except KeyboardInterrupt:
             finish_event.set()
             break
-        with data_lock:
-            name = in_value
-            print(f'Thread [write_name_loop] =>'
-                  f' Write new name is: {name}')
 
 
 def check_name_loop():
@@ -80,12 +90,9 @@ def check_name_loop():
 
 
 def threading_ex4():
-    global name
-    name = ''
-    kwargs = {'name_ref': name}
     writing_thread = Thread(target=write_name_loop)
     reading_thread = Thread(target=check_name_loop)
     writing_thread.start()
     reading_thread.start()
-    # writing_thread.join()
-    # reading_thread.join()
+    writing_thread.join()
+    reading_thread.join()
