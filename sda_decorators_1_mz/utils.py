@@ -36,20 +36,23 @@ def check_file_wrapper(func):
         import os
         if path and os.path.exists(path):
             print('Path exists')
-        else:
+        elif path:
             print('Path not exist - file created')
             from pathlib import Path
             Path(path).touch()
+        else:
+            print('No argument')
+            import sys
+            sys.exit(1)
         return func(*args, *kwargs)
 
     return inner
 
 
 @check_file_wrapper
-def open_file_func(file_path: str, text_lines: list):
+def open_file_func(file_path: str):
     with open(file_path, 'r') as fd:
-        for line in text_lines:
-            fd.write(line)
+        fd.read()
 
 
 def catch_io_error(func):
