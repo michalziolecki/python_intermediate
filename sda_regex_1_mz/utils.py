@@ -67,7 +67,7 @@ def regex_ex6():
 def regex_ex7():
     print('Write serial')
     value = input()
-    expression = '([A-Z0-9!@#\\$%\\^&\\*]{5}\\-){4}[A-Z0-9!@#\\$%\\^&\\*]'
+    expression = '([A-Z0-9!@#\\$%\\^&\\*]{5}\\-){4}[A-Z0-9!@#\\$%\\^&\\*]{5}'
     if re.match(expression, value):
         print('correct serial')
     else:
